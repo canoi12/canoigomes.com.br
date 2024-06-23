@@ -107,12 +107,52 @@ Então olhando com mais calma:
 \begin{itemize}
     \item 0x4D e 0x46: Representa o nosso magic number, \textbf{4D = M} e \textbf{46 = F}
     \item 0x5A ao 0x6F: Representa o nosso nome, se pegarmos novamente na tabela ASCII vamos ver que \textbf{5A = Z} e \textbf{6F = o}
-    \item 0x19 e 0x01: Essa que é a parte interessante, se pegarmos na tabela vamos ver que esses códigos representam caracteres especiais. Caracteres esses que muito provavelmente não serão exibidos no editor de texto. Porém o que nos interessa não é o caractere o código representa, e sim seu valor. 0x19 é o valor hexadecimal para 25, ou seja, a idade que nós colocamos para a pessoa. Igualmente o 0x01 nos interessa somente o seu valor (true nesse caso).
+    \item 0x19 e 0x01: Essa que é a parte interessante, se pegarmos na tabela vamos ver que esses códigos representam caracteres especiais. Caracteres esses que muito provavelmente não serão exibidos no editor de texto. Porém o que nos interessa não é o caractere que o código representa, e sim seu valor. 0x19 é o valor hexadecimal para 25, ou seja, a idade que nós colocamos para a pessoa. Igualmente o 0x01, o que nos interessa é somente o seu valor (true nesse caso).
 \end{itemize}
+
+\subsection{Cabeçalho}
+
+Tá bom, mas como que eu represento isso no meu código? É bem comum utilizar algo chamado cabeçalho, que vai ter uma representação exata dos bytes utilizados por cada campo.
+Eu vou começar alterando um pouco o formato do meu tipo. No cabeçalho não vou guardar as informações relativas ao nome, e sim qual o tamanho do nome. E o dado do nome de fato, eu escrevo depois do meu cabeçalho. Seria algo mais ou menos assim:
+\begin{lstlisting}
+MF#@$Ze Brasileiro
+\end{lstlisting}
+Ignore os simbolos de \textbf{\#, @ e \$} por agora, só saiba que eles representam respectivamente o [tamanho do nome][idade][vivo ou morto].
+
+Representando em uma struct em C eu vou ter isso aqui:
+\begin{lstlisting}[language=C, caption=Cabeçalho em C]
+struct Header {
+    char magic[2];
+    char name_size;
+    char age;
+    char alive;
+};
+\end{lstlisting}
+
+Mas por que eu fiz isso? Bem, como estava anteriormente, com o nome vindo logo depois do magic number, um trabalho a mais é necessário para se interpretar esse arquivo. Seria necessário ler inicialmente os dois bytes, e depois começar a ler caractere por caractere do nome até chegar em um número. Com isso eu não consigo identificar facilmente o tamanho do nome de cara, preciso fazer essa leitura byte a byte e pode dificultar um pouco no uso no programa.
+
+Uma convenção bem comum é setar um tamanho fixo de bytes para guardar uma string.
+
+\begin{lstlisting}[language=C, caption=Cabeçalho com tamanho fixo de string]
+struct Header {
+    char magic[2];
+    char name[32];
+    char age;
+    char alive;
+};
+\end{lstlisting}
+
+Ou seja, seu nome não pode ser maior que 32 bytes, porém pode ser menor. Só que nesse caso, mesmo que o nome seja menor que 32 bytes, a informação da idade não vem logo depois do nome, ela começa somente no byte 34 (2 do magic + 32 do nome), pois o resto dos bytes será preenchido (provavelmente com 0). Teria algo assim:
+
+\begin{lstlisting}
+MFZe Brasileiro0000000000000000000@$
+\end{lstlisting}
+
+Novamente, isso é só uma representação, é muito provável que no seu editor de textos você não veja nenhum símbolo após o nome.
 
 \subsection{Escrevendo em um arquivo binário}
 
-Tá bom, mas como que eu represento isso no meu código?
+Mas vamos para o código em C.
 
 \begin{lstlisting}[language=C, caption=Exemplo de escrita em C]
 #include <stdio.>
@@ -141,26 +181,7 @@ int main(int argc, char** argv) {
 }
 \end{lstlisting}
 
-Aqui eu mudei um pouco a estrutura do meu formato. Como estava anteriormente, com o nome vindo logo depois do magic number, um trabalho a mais é necessário para se interpretar esse arquivo. Seria necessário ler inicialmente os dois bytes, começar a pegar caractere por caractere do nome até chegar em um número. Com isso eu não consigo identificar facilmente o tamanho do nome e pode dificultar um pouco no uso do programa.
-
-Uma convenção bem comum é setar um tamanho fixo de bytes para guardar um string.
-
-\begin{lstlisting}[language=C, caption=Cabeçalho com tamanho fixo de string]
-struct Header {
-    char magic[2];
-    char name[32];
-    char age;
-    char alive;
-};
-\end{lstlisting}
-
-Ou seja, seu nome não pode ser maior que 32 bytes, porém pode ser menor. Só que nesse caso, mesmo que o nome seja menor que 32 bytes, a informação da idade não vem logo depois do nome, ela começa somente no byte 34 (2 do magic + 32 do nome), pois o resto dos bytes será preenchido (provavelmente com 0). Teria algo assim:
-
-\begin{lstlisting}
-MFZe Brasileiro0000000000000000000@$
-\end{lstlisting}
-
-Novamente, isso é só uma representação, é muito provável que no seu editor de textos você não veja nenhum símbolo após o nome.
+Aqui não tem muito mistério. Eu preencho meu cabeçalho com os dados que quero utilizar e escrevo em um arquivo (lembre-se de abrir o arquivo no modo de escrita binária, ou \textbf{wb}), e logo em seguida escrevo o nome.
 
 \subsection{Lendo de um arquivo binário}
 
