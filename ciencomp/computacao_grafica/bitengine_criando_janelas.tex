@@ -1,0 +1,221 @@
+\documentclass[a4paper,oneside,12pt]{article}
+\usepackage[portuguese]{babel}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{indentfirst}
+\usepackage{fontspec}
+\usepackage{hyperref}
+
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{bg}{rgb}{0.8, 0.8, 0.8}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\linespread{1.5}
+\setmainfont{Times New Roman}
+
+\title{bitEngine - Criando Janelas Multiplataformas}
+\author{Canoi Gomes}
+\date{23 de Abril de 2023}
+
+% \newtcbox{\mybox}{on line,boxrule=0pt,boxsep=0pt,colback=lightgray,top=1pt,bottom=1pt,left=1pt,right=1pt,arc=0pt,fontupper=\ttfamily}
+\newcommand{\mybox}[1]{%
+    \colorbox{bg}{\textbf{#1}}
+}
+
+\begin{document}
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Introdução}
+
+Dessa vez decidir começar um projeto sobre uma parte que venho querendo aprender a um tempo, que seria como criar o contexto básico pra um jogo (janela, input, gráficos e áudios) utilizando somente bibliotecas do próprio sistema, em resumo, eu queria entender mais como bibliotecas como SDL2 e GLFW funcionam por baixo dos panos.
+
+Nisso (como sempre faço na minha vida) decidi criar um projeto pra focar nos estudos dessa parada, bite, a ideia é:
+
+\begin{itemize}
+    \item Conseguir criar uma janela pelo menos em desktop (Windows, Linux e Mac) e web (Emscripten)
+    \item Criar um render básico utilizando OpenGL (OpenGLES2 com Emscripten), e carregar somente algumas funções específicas do modern OpenGL que vão ser necessárias (criar shaders, framebuffers, …).
+    \item Tocar pelo menos 1 áudio (a ideia é fazer um mixer, mas vamo vê né).
+    \item Filesystem básico (ler e escrever arquivos, listar diretórios, …).
+\end{itemize}
+
+\noindent
+A ideia é ter algo como:
+\begin{lstlisting}[language=C]
+#include <bite.h>
+#if defined(__EMSCRIPTEN__)
+    #include <emscripten.h>
+#endif
+
+void main_loop(void* arg) {
+    be_Context* ctx = (be_Context*)arg;
+    bite_poll_events(ctx);
+    // render suff
+    bite_swap(ctx);
+}
+
+int main(int argc, char** argv) {
+    be_Config conf = bite_init_config("Hello Window", 640, 380);
+    be_Context* ctx = bite_create(&conf);
+#if defined(__EMSCRIPTEN__)
+    emscripten_set_main_loop_arg(main_loop, ctx, 0, 1);
+#else
+    while(!bite_should_close(ctx)) main_loop(ctx);
+#endif
+    bite_destroy(ctx);
+    return 0;
+}
+\end{lstlisting}
+
+Onde por trás vai ser criado o contexto específico pra cada plataforma:
+
+\begin{lstlisting}[language=C]
+#if defined(_WIN32)
+	#include <windows.h>
+#elif defined(__EMSCRIPTEN__)
+	#include <emscripten.h>
+	#include <emscripten/html5.h>
+#else
+	#include <X11/Xlib.h>
+	#include <GL/glx.h>
+#endif
+
+be_Context* bite_create(const be_Config* conf) {
+#if defined(_WIN32)
+	// Win32 Window and WGL context creation
+#elif defined(__EMSCRIPTEN__)
+	// Emscripten context creation
+#else
+	// Linux Window and GLX context creation
+	// other systems .....
+#endif
+}
+\end{lstlisting}
+
+Se estiverem interessados em como funciona a criação da janela pra cada plataforma, esse artigo dá uma pincelada legal no assunto: \url{https://zserge.com/posts/fenster/}
+
+\section{Renderizando com OpenGL}
+
+Na parte de renderização vai OpenGL mesmo, que como eu disse, funciona bem pro meu escopo (Desktop e Web). Pra isso preciso carregar um contexto OpenGL que suporte extensões, já que as libs padrão de cada plataforma (GLX no Windows e WGL no Windows) só nos dão um contexto com uma versão antiga (versão 1.4 se não me engano), e cada plataforma tem sua maneira de carregar um contexto mais moderno. No Windows, por exemplo, é necessário criar uma ``dummy window'' com um contexto antigo, somente pra ser capaz de carregar a função responsável por criar o contexto mais novo, depois disso ela é simplesmente deletada, no Linux não é necessário (outras plataformas provavelmente tem suas especificidades também, mas não cheguei lá ainda).
+
+\href{https://gist.github.com/nickrolfe/1127313ed1dbf80254b614a721b3ee9c}{Exemplo no Windows}
+
+\href{https://apoorvaj.io/creating-a-modern-opengl-context/}{Tutorial para Linux}
+
+Tendo o “contexto moderno” carregado, ainda é preciso carregar as funções que eu vou utilizar, e pra isso existe a função \mybox{GetProcAddress} de cada lib (\mybox{glXGetProcAddress} no Linux ou \mybox{wglGetProcAddress} no Windows).
+
+\begin{lstlisting}
+typedef GLuint glCreateProgramProc(void);
+
+static glCreateProgramProc* glCreateProgram = 0;
+
+#if defined(_WIN32)
+    #define biteGetProcAddress wglGetProcAddress
+#elif defined(__linux__)
+    #define biteGetProcAdress glXGetProcAddress
+#else
+    #define biteGetProcAddress(x) ((void)(x))
+#endif
+
+int init_opengl_procs(void) {
+    glCreateProgram = (glCreateProgramProc*)biteGetProcAdress("glCreateProgram");
+    return 0;
+}
+\end{lstlisting}
+
+Vale a pena dar uma olhada em outros loaders como o \href{https://glad.dav1d.de/}{glad} e o \href{https://glew.sourceforge.net/}{GLEW}.
+
+Tem uma lib minha que faz algo parecido com o que eu quero fazer aqui, \href{https://github.com/cafe-engine/tea}{tea}, que é basicamente carregar somente o mínimo de funções necessárias e criar abstrações em cima delas.
+
+Pra ter o básico pra suportar shaders, por exemplo, seriam necessárias:
+
+\noindent\rule{\textwidth}{0.4pt}
+\begin{itemize}
+    \item glCreateShader
+    \item glShaderSource
+    \item glCompileShader
+    \item glGetShaderiv
+    \item glGetShaderInfoLog
+    \item glDeleteShader
+\end{itemize}
+\noindent\rule{\textwidth}{0.4pt}
+\begin{itemize}
+    \item glCreateProgram
+    \item glAttachShader
+    \item glLinkProgram
+    \item glGetProgramiv
+    \item glGetProgramInfoLog
+    \item glDeleteProgram
+    \item glUseProgram
+\end{itemize}
+\noindent\rule{\textwidth}{0.4pt}
+
+\noindent
+Sem expor isso pro usuário, mas sim abstraindo o processo em outras funções:
+\begin{lstlisting}[language=C]
+be_Shader* bite_create_shader(const char* vert_src, const char* frag_src) {
+    be_Shader* shader = NULL;
+    GLuint program;
+    GLuint vert, frag;
+
+    vert = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(vert_src);
+    // ....
+    
+    program = glCreateProgram();
+    glAttachShader(program, vert);
+    glAttachShader(program, frag);
+    // ...
+
+    shader->handle = program;
+    glDeleteShader(vert);
+    glDeleteShader(frag);
+
+    return shader;
+}
+\end{lstlisting}
+
+E é isto.
+
+\section{Considerações}
+
+Fora a renderização também vão ter outros pontos pra se lidar, como por exemplo:
+
+\begin{itemize}
+    \item Eventos (janela movendo/redimensionando, tecla pressionada, …), que na real é bem tranquilo, o mais chatinho é lidar com a questão multiplataforma da parada mesmo, já que no caso de teclas pressionadas os KeyCodes são diferentes, por exemplo, então tu vai ter que criar os seus próprios e filtrar por plataforma pra retornar pro usuário o certo.
+    \item Áudio, que sinceramente ainda é um mistério pra mim.
+\end{itemize}
+
+Eu pretendo (ou pelo menos espero conseguir) postar devlogs a medida que for aprendendo sobre os assuntos.
+
+E outra coisa que to pensando em fazer é separar os backends em arquivos .c diferentes, queria muito ter um único \mybox{.h} e \mybox{.c} pra facilitar portabilidade, mas é horrível de mexer com tanto \mybox{\#ifdef}.
+
+\end{document}
