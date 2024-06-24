@@ -1,41 +1,5 @@
 \documentclass[a4paper,oneside,12pt]{article}
-\usepackage[portuguese]{babel}
-\usepackage{graphicx}
-\usepackage{listings}
-\usepackage{indentfirst}
-\usepackage{fontspec}
-\usepackage{xcolor}
-
-\setmainfont{Times New Roman}
-
-\linespread{1.5}
-
-
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-
-\lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
-}
-
-\lstset{style=mystyle}
+\input{../../default}
 
 \title{Metaballs com LÖVE}
 \author{Canoi Gomes}
@@ -52,6 +16,10 @@
 \section{Introdução}
 
 Nesse tutorial pretendo mostrar como que é possível criar o efeito de metaballs usando a framework LÖVE. Não é nada de outro mundo, é um efeito que você pode reproduzir em diferentes engines, e acredito que sem muita dificuldade.
+
+\subsection{Baixando a LÖVE}
+
+Entre no site \url{https://love2d.org} e baixe a versão para o seu sistema operacional. No Linux a maioria das distribuições devem ter presentes a framework em seu repositório, algumas talvez só estejam desatualizadas. Para o Windows é preciso baixar do site mesmo, e também adicionar a pasta de instalação nas variáveis do sistema.
 
 \subsection{O que são metaballs?}
 
