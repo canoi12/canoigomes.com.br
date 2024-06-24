@@ -240,7 +240,7 @@ E no fim, essa é a imagem que nós acabamos de criar:
 
 Agora perceba que os dados que escrevemos é diferente do resultado final da imagem.
 Nós escrevemos vermelho (0 0 255 em BGR) x verde (0 255 0) na primeira linha, e azul (255 0 0 BGR) x branco (255 255 255) na segunda. Porém a imagem saiu o exato oposto, a primeira linha é azul x branco e a segunda vermelho x verde. Isso acontece porque as linhas são lidas de baixo para cima.
-Ou seja, dos nossos 16 bytes de dadis, é lido primeiro os últimos 8 bytes (0xff 0x00 0x00 | 0xff 0xff 0xff | 0x00 0x00), e aí sim os primeiros 8 bytes (0x00 0x00 0xff | 0x00 0xff 0x00 | 0x00 0x00).
+Ou seja, dos nossos 16 bytes de dados, é lido primeiro os últimos 8 bytes (0xff 0x00 0x00 | 0xff 0xff 0xff | 0x00 0x00), e aí sim os primeiros 8 bytes (0x00 0x00 0xff | 0x00 0xff 0x00 | 0x00 0x00).
 Isso é importante para entender o próximo tópico, que é como nós podemos criar um programa que consiga exibir imagens que estejam no formato bitmap.
 
 \section{Lendo e Exibindo um Bitmap}
