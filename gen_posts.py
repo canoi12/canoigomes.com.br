@@ -85,6 +85,7 @@ class StaticSite:
             meta['author'] = metadata['author']
             meta['date'] = metadata['date']
             meta['tags'] = metadata['tags']
+            meta['category'] = metadata['category']
             self.posts_meta.append(meta)
         else:   
             print("Erro ao extrair metadata")

@@ -64,7 +64,8 @@ export default {
             <ul class="tags-menu menu-list menu">
                 <li v-for='n in 5'>
                     <router-link class='tag-link' :to='"/post/" + meta[n-1].linkname[0]'>
-                    [{{ this.getDate(meta[n-1].date) }}] {{ meta[n-1].title }}
+                    <h2 class='title is-6'>[{{ meta[n-1].category }}] - {{ meta[n-1].title }}</h2>
+                    <p class='subtitle is-6' style='text-align: right;'><i class="fa-regular fa-calendar"></i> {{ this.getDate(meta[n-1].date) }}</p>
                     </router-link>
                 </li>
             </ul>

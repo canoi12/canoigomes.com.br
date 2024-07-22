@@ -30,7 +30,10 @@ export default {
     template: `
         <ul>
             <li :style='listStyle' class='archive-post' v-for='item in postsData'>
-                <router-link style="padding-bottom: 16px;" class='title is-4' :to='"/post/" + item.linkname[0]'>[{{ this.getDate(item.date) }}] - {{ item.title }}</router-link>
+                <router-link style="padding-bottom: 16px;" :to='"/post/" + item.linkname[0]'>
+                <h2 class='title is-4'>[{{ item.category }}] - {{ item.title }}</h2>
+                <p class='subtitle is-6'><i class="fa-regular fa-calendar"></i> {{ this.getDate(item.date) }}</p>
+                </router-link>
                 <br/>
                 <div class='tags'>
                     <span :style='spanStyle' class='tag is-dark' v-for='tag in item.tags'>
