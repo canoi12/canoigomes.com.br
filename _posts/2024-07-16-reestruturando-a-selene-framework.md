@@ -1,11 +1,10 @@
 ---
 layout: post
-author:
-  - Canoi Gomes
+author: Canoi Gomes
 title: Reestruturando a Selene Framework
 type: Devlog
 category: devlog
-date: 2024-07-16
+date: '2024-07-16T19:00:00-03:00'
 tags:
   - lua
   - selene
@@ -26,7 +25,9 @@ return {
 	step = function()
 		print('Print from lua')
 	end,
-	quit = function() print('Exiting..')
+	quit = function()
+		print('Exiting..')
+	end
 }
 ```
 
