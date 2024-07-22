@@ -54,12 +54,13 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-image: url('/cafe.png');
+    background-repeat: no-repeat;
     background-position: center top;
 }
 
 .container, .main-columns {
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
 .section {
