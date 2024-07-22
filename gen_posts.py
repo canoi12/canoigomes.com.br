@@ -10,9 +10,6 @@ PUBLIC_DIR = 'public/'
 POSTS_DIR = '_posts/'
 MEDIA_DIR = 'media/'
 
-files = [f for f in os.listdir(POSTS_DIR) if os.path.isfile(POSTS_DIR + f)]
-print(files)
-
 def extract_meta(content):
     if content.startswith('---'):
         end = content.find('---', 3)
@@ -39,17 +36,21 @@ def strip_accents(text):
 
 class StaticSite:
     posts_meta = []
+    base_dir = POSTS_DIR
     build_dir = PUBLIC_DIR
     def build(self):
-        if not os.path.isdir(self.build_dir + POSTS_DIR):
-            os.mkdir(self.build_dir + POSTS_DIR)
+        if len(sys.argv) > 1 and os.path.isdir(sys.argv[1]):
+            self.base_dir = sys.argv[1]
+
+        if not os.path.isdir(self.build_dir + self.base_dir):
+            os.mkdir(self.build_dir + self.base_dir)
 
         if not os.path.isdir(self.build_dir + MEDIA_DIR):
             os.mkdir(self.build_dir + MEDIA_DIR)
 
-        self.generate_posts(POSTS_DIR)
+        self.generate_posts(self.base_dir)
 
-        with open(self.build_dir + POSTS_DIR + 'meta.json', 'w', encoding='utf-8') as file:
+        with open(self.build_dir + self.base_dir + 'meta.json', 'w', encoding='utf-8') as file:
             json.dump(self.posts_meta, file, ensure_ascii=False, indent=4)
 
     def process_file(self, dirpath, filename):
@@ -72,7 +73,7 @@ class StaticSite:
         if metadata and content:
             
             final_name = strip_accents(filename.replace('.md', '.json').replace('#', '').lower())
-            path = self.build_dir + POSTS_DIR + final_name  
+            path = self.build_dir + self.base_dir + final_name  
             metadata['content'] = content
             with open(path, 'w', encoding='utf-8') as file:
                 json.dump(metadata, file, ensure_ascii=False, indent=4)
