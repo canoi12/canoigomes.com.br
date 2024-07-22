@@ -3,7 +3,7 @@ layout: post
 title: (Re)Implementing Wren in tiny coffee
 author: Canoi Gomes
 date: '2020-07-07T11:25:00-03:00'
-type: Devlog
+category: Devlog
 tags:
 - tinycoffee
 - tico

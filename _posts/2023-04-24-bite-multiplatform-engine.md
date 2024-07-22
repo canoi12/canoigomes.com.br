@@ -3,7 +3,7 @@ layout: post
 title: bitEngine - criando janelas multiplataforma
 author: Canoi Gomes
 date: '2023-04-23T10:02:00'
-type: Blog
+category: Blog
 tags:
 - article
 - pt-br

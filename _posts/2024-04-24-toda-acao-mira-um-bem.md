@@ -3,7 +3,7 @@ layout: post
 title: Por que toda ação mira um bem?
 author: Canoi Gomes
 date: '2024-04-24T19:00:00-03:00'
-type: Post
+category: Post
 tags:
   - article
   - philosophy

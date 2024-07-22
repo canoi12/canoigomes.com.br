@@ -3,7 +3,7 @@ layout: post
 title: Selene Engine
 author: Canoi Gomes
 date: '2023-10-19T21:07:00'
-type: Blog
+category: Post
 tags:
   - article
   - devlog

@@ -2,9 +2,8 @@
 layout: post
 author: Canoi Gomes
 title: Reestruturando a Selene Framework
-type: Devlog
-category: devlog
 date: '2024-07-16T19:00:00-03:00'
+category: Devlog
 tags:
   - lua
   - selene

@@ -3,7 +3,7 @@ layout: post
 title: Using MoonScript with LÖVE
 author: Canoi Gomes
 date: '2017-02-24T21:40:00-03:00'
-type: Tutorial
+category: Tutorial
 tags:
 - love2d
 - programming

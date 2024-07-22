@@ -3,14 +3,12 @@ layout: post
 author: Canoi Gomes
 date: '2024-06-23T19:00:00-03:00'
 title: "Formatos Binários #1 - Arquivos Binários"
-type: Tutorial
+category: Tutorial
 tags:
   - article
   - programming
+  - C
 ---
-
-Introdução
-==========
 
 Você sabe como funciona um arquivo binário? Aqueles arquivos que ao
 tentarmos abrir num editor de textos qualquer, aparece um monte de

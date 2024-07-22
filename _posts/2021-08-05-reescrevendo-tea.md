@@ -3,7 +3,7 @@ layout: post
 title: Reescrevendo a Tea
 author: Canoi Gomes
 date: '2021-08-05T10:35:00'
-type: Blog
+category: Devlog
 tags:
 - article
 - pt-br

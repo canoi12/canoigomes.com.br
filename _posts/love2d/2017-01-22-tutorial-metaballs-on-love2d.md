@@ -3,7 +3,7 @@ layout: post
 title: LÖVE Tutorial - Metaballs
 author: Canoi Gomes
 date: '2017-01-22T18:39:01-03:00'
-type: Tutorial
+category: Tutorial
 tags:
 - tutorial
 - gamedev

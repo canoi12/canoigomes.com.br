@@ -2,7 +2,7 @@
 layout: post
 title: LÖVE Básico 1 - Lua
 author: Canoi Gomes
-type: Tutorial
+category: Tutorial
 date: "2021-06-07T19:16:40-03:00"
 tags:
   - programming
