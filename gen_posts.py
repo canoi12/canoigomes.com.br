@@ -20,7 +20,7 @@ def extract_meta(content):
     return None
 
 def extract_content(markdown):
-    return pypandoc.convert_text(markdown, 'html', format = 'md', filters=['filter.lua'])
+    return pypandoc.convert_text(markdown, 'html', format = 'md', extra_args = ['--lua-filter', 'filter.lua'])
 
 def strip_accents(text):
     try:
