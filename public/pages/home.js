@@ -44,7 +44,6 @@ export default {
         });
     },
     template: `
-    
     <h1 class='title is-4'>REPOSITORIES</h1>
     <div class='columns is-multiline'>
         <div class='column is-half' v-for='repo in repos'>

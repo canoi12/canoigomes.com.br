@@ -1,5 +1,7 @@
 const { ref } = Vue;
+import PdfViewer from '/components/PDFViewer.js'
 export default {
+    components: { PdfViewer },
     data() {
         return {
             info: {},

@@ -3,6 +3,7 @@
     --text-foreground: #fff;
     --text-background: #000;
     --border-color: hsl(197, 62%, 35%);
+    --border-size: 2px;
 
     --link-text-normal: #fff;
     --link-text-hover: #111;    
@@ -52,10 +53,13 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-image: url('/cafe.png');
+    background-position: center top;
 }
 
 .container, .main-columns {
     height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .section {
@@ -64,7 +68,7 @@ body {
 }
 
 .left-bar {
-    border-right: 2px dashed var(--border-color); 
+    border-right: var(--border-size) dashed var(--border-color); 
     margin-top: 16px;
     padding-right: 24px;
     /* border-top: 2px dashed var(--border-color);  */
@@ -72,7 +76,7 @@ body {
 }
 
 .right-bar {
-    border-left: 2px dashed var(--border-color);    
+    border-left: var(--border-size) dashed var(--border-color);    
     margin-top: 16px;
 }
 
@@ -85,22 +89,22 @@ body {
 }
 
 .input:hover {
-    border: 2px dashed var(--border-color);
+    border: var(--border-size) dashed var(--border-color);
 }
 
 .input:focus {
-    border: 2px solid var(--border-color);
+    border: var(--border-size) solid var(--border-color);
 }
 
 #menu {
     margin: 8px 0 16px 0;
     padding-bottom: 8px;
-    border-bottom: 2px dashed var(--border-color);
+    border-bottom: var(--border-size) dashed var(--border-color);
 }
 
 .site-header {
     padding-bottom: 16px;
-    border-bottom: 2px dashed var(--border-color);
+    border-bottom: var(--border-size) dashed var(--border-color);
 }
 
 .social-icon {
@@ -124,7 +128,7 @@ body {
 .archive-post {
     margin: 16px 0;
     padding-bottom: 16px;
-    border-bottom: 2px dashed var(--border-color);
+    border-bottom: var(--border-size) dashed var(--border-color);
 }
 
 /* Source Code Hightlight */
@@ -134,7 +138,7 @@ div .sourceCode {
 }
 
 .sourceCode pre {
-    border: 2px dashed var(--border-color);
+    border: var(--border-size) dashed var(--border-color);
 }
 
 .post-header {
