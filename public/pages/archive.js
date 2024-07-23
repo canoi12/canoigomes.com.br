@@ -1,4 +1,4 @@
-import PostsList from "/components/PostsList.js   ";
+import PostsList from "/components/PostsList.js";
 export default {
     components: { PostsList },
     data() {

@@ -4,32 +4,28 @@ export default {
             repos: [
                 {
                     user: 'cafe-engine',
-                    name: 'cafe'
+                    name: 'cafe',
+                    description: '',
                 },
                 {
                     user: 'canoi12',
-                    name: 'selene'
+                    name: 'selene',
+                    description: '',
                 },
                 {
                     user: 'canoi12',
-                    name: 'poti'
+                    name: 'poti',
+                    description: '',
                 },
                 {
                     user: 'canoi12',
-                    name: 'tinycoffee'
+                    name: 'tinycoffee',
+                    description: '',
                 },
             ],
-            git_data: {},
         }
     },
     created() {
-        fetch('https://api.github.com/users/canoi12')
-            .then(res => res.json())
-            .then(json => {
-                this.git_data = json;
-                // console.log(json)
-            })
-
         this.repos.forEach((repo) => {
             // console.log('https://api.github.com/repos/' + repo.user + '/' + repo.name)
             fetch('https://api.github.com/repos/' + repo.user + '/' + repo.name)
@@ -47,7 +43,7 @@ export default {
     <h1 class='title is-4'>REPOSITORIES</h1>
     <div class='columns is-multiline'>
         <div class='column is-half' v-for='repo in repos'>
-            <div class='card'>
+            <div class='card repo-card'>
                 <div class='card-content'>
                     <div class="media">
                         <div class="media-left">
@@ -55,7 +51,7 @@ export default {
                         </div>
                         <div class="media-content">
                             <p class="title is-4"><a :href='"https://github.com/" + repo.user + "/" + repo.name' target='_blank'>{{ repo.name }} <span v-if='repo.language' class='tag is-dark'>{{repo.language}}</a></p>
-                            <p class="subtitle is-6">@{{git_data.login  }}</p>
+                            <p class="subtitle is-6"><a :href='"https://github.com/" + repo.user' target='_blank'>@{{ repo.user }}</a></p>
                         </div>
                     </div>
                     <div class='content'>

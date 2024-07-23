@@ -58,6 +58,10 @@ body {
     background-position: center top;
 }
 
+.repo-card {
+    border: var(--border-size) dashed var(--border-color);
+}
+
 .container, .main-columns {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.75);

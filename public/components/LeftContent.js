@@ -27,6 +27,7 @@ export default {
                     <li><router-link to="/">/home</router-link></li>
                     <li><router-link to="/about">/about</router-link></li>
                     <li><router-link to="/archive">/archive</router-link></li>
+                    <li><router-link to="/projects">/projects</router-link></li>
                 </ul>
             </nav>
             <div class='social-icons columns is-multiline'>
