@@ -2,7 +2,7 @@ export default {
     data() {
         return {
             engines: [
-                'Unity', 'Unreal', 'GameMaker'
+                'Unity', 'Unreal', 'GameMaker', 'Godot'
             ],
             languages: [
                 'C', 'C++', 'C#', 'Lua', 'Python', 'Rust'
