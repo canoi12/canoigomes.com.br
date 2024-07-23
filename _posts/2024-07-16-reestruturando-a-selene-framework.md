@@ -39,7 +39,7 @@ A grande diferença aqui vai ser na forma como essas bibliotecas serão carregad
 A ideia é ter algo assim:
 ```lua
 --- main.lua
-local runner = selene.load_module('runner')
+local runner = selene.load_plugin('runner')
 runner.init({window = {title = 'My Game'}})
 return runner
 ```
