@@ -80,12 +80,17 @@ class StaticSite:
 
             meta = {}
             meta['filepath'] = final_name
-            meta['linkname'] = final_name.replace('.json', ''),
-            meta['title'] = metadata['title']
-            meta['author'] = metadata['author']
-            meta['date'] = metadata['date']
-            meta['tags'] = metadata['tags']
-            meta['category'] = metadata['category']
+            meta['linkname'] = final_name.replace('.json', '')
+
+            for item in metadata:
+                if not 'content' in item:
+                    meta[item] = metadata[item]
+
+            # meta['title'] = metadata['title']
+            # meta['author'] = metadata['author']
+            # meta['date'] = metadata['date']
+            # meta['tags'] = metadata['tags']
+            # meta['category'] = metadata['category']
             self.posts_meta.append(meta)
         else:   
             print("Erro ao extrair metadata")
