@@ -12,7 +12,7 @@ export default {
             ],
 
             links: [
-                {path: '#', name: 'canoiaguiar@gmail.com'},
+                {path: 'mailto:canoiaguiar@gmail.com', name: 'canoiaguiar@gmail.com'},
                 {path: 'https://youtube.com/@canoidev', name: 'youtube'},
                 {path: 'https://x.com/canoidev', name: 'twitter'},
                 {path: 'https://github.com/canoi12', name: 'github'},

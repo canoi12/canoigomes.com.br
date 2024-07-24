@@ -11,12 +11,12 @@ tags:
   - pt-br
   - C
 ---
-Já tem um tempo que sigo nessa empreitada de achar um formato interessante para essa lib. Como já comentei em uma postagem anterior, essa lib nasceu com uma proposta bem parecida com um LÖVE da vida, com um core todo escrito em C (como render e sistema de áudio) e um frontend em Lua que faz uso dessas estruturas.
+Já tem um tempo que sigo nessa empreitada de achar um formato interessante para essa lib. Como já comentei em uma [postagem anterior](/post/2023-10-19-selene-engine-pt-br), essa lib nasceu com uma proposta bem parecida com um LÖVE da vida, com um core todo escrito em C (como render e sistema de áudio) e um frontend em Lua que faz uso dessas estruturas.
 
-Porém recentemente decidi abandonar essa ideia do core em C, e fazer a framework em Lua, ou seja, todo o renderer e seus tipos como Imagens, Canvas, Batch, entre outros. Com isso eu acabo deixando a funcionamento do meu executável bem simples, ele se torna apenas um wrapper para algumas libs como SDL2 e OpenGL, e embutido também há um pequeno script em Lua que vai ser responsável por fazer o "boot" da framework.
+Porém recentemente decidi abandonar essa ideia do core em C, e fazer a framework em Lua, ou seja, todo o renderer e seus tipos como Imagens, Canvas, Batch, entre outros, serão escritos em Lua. E o core em C seria apenas um wrapper para algumas libs, como `SDL2`, `OpenGL`. Também uso para expor algumas funções de filesystem também como, `mkdir`, ou listar arquivos em um diretório, coisas que Lua não tem por padrão. Com isso eu acabo deixando o funcionamento do meu executável bem simples, já que é um executável que permite a execução de scripts Lua e possui algumas libs uteis. Embutido também há um pequeno script em Lua que vai ser responsável por fazer o "boot" da framework.
 
 ### Boot
-O arquivo de boot é bem simples, ele vai adicionar o diretório onde está o executável e o adiciona à lista de diretórios onde o Lua busca pelos seus módulos (insere no `package.path`). Depois ele faz uma busca por um arquivo `main.lua`, esse arquivo só tem que retornar uma tabela com os seguintes campos: `step` e `quit`, onde ambas devem ser funções,  se forem qualquer outro tipo o programa retornará um erro. Seria algo assim:
+O arquivo de boot é bem simples, ele vai adicionar o diretório onde está o executável (usando a função `SDL_GetBasePath()`) e o adiciona à lista de diretórios onde o Lua busca pelos seus módulos (no `package.path`). Depois ele faz uma busca por um arquivo `main.lua`, esse arquivo só tem que retornar uma tabela com os seguintes campos: `step` e `quit`, onde ambas devem ser funções,  se forem qualquer outro tipo o programa retornará um erro. Seria algo assim:
 
 ```lua
 -- main.lua

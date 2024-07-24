@@ -8,7 +8,7 @@ export default {
                 {icon: 'fa-brands fa-twitter', path: 'https://x.com/canoidev/'},
                 {icon: 'fa-brands fa-youtube', path: 'https://www.youtube.com/@canoidev'},
                 {icon: 'fa-brands fa-itch-io', path: 'https://canoigomes.itch.io'},
-                {icon: 'fa-regular fa-envelope', path: 'mailto:canoiaguiar@gmail.com'},
+                {icon: 'fa-brands fa-linkedin', path: 'https://www.linkedin.com/in/canoi-gomes-de-aguiar/'},
             ]
         }
     },
