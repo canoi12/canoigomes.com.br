@@ -12,6 +12,6 @@ platforms:
   - PS4
   - Switch
 ---
-Forgive Me Father is a Lovecraftian style First Person Shooter game, you fight against zombies, demons and others monsters.
+Forgive Me Father is **a dark retro horror FPS set in a comic book style world inspired by the novels of H.P.** **Lovecraft**. As the only one left with full senses, you begin a journey in search of answers and relief.
 
-In FMF I worked as a Game Porting Engineer, porting to `Xbox One`, `PS4` and `Nintendo Switch` platforms.
+In FMF I worked as a Game Porting Engineer, porting the game to the platforms `Xbox One`, `PS4` and `Nintendo Switch`.
