@@ -3,12 +3,11 @@ layout: post
 title: bitEngine - criando janelas multiplataforma
 author: Canoi Gomes
 date: '2023-04-23T10:02:00'
-category: Blog
+category: Post
 tags:
-- article
-- pt-br
+  - article
+  - pt-br
 ---
-
 Tirando um pouco da poeira daqui.
 
 Dessa vez decidir começar um projeto sobre uma parte que venho querendo aprender a um tempo, que seria como criar o contexto básico pra um jogo (janela, input, gráficos e áudios) utilizando somente bibliotecas do próprio sistema, em resumo, eu queria entender mais como bibliotecas como [SDL2](https://libsdl.org) e [GLFW](https://libglfw.org) funcionam por baixo dos panos.

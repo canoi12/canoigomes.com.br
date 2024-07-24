@@ -32,7 +32,7 @@ return {
 
 A `step` é a função que é chamada no loop principal, e `quit` é chamada após o final do programa, é interessante para caso queira tratar algum objeto antes de finalizar.
 ### Plugins
-A ideia inicial era ter um módulo `core/` escrito em Lua, contendo as estruturas básicas pra fazer um jogo (renderer, sistema de áudio, filesystem, window), e posteriormente outros módulos como `engine/` e `editor/`. Porém decidi transformar tudo em plugins, acho que isso facilita pra a galera que quiser expandir ou criar novos plugins.
+A ideia inicial era ter um módulo `core/` escrito em Lua, contendo as estruturas básicas pra fazer um jogo (renderer, sistema de áudio, filesystem, window, ...), e posteriormente outros módulos como `engine/` e `editor/`. Porém decidi transformar tudo em plugins, acho que isso facilita pra a galera que quiser expandir ou criar novos plugins.
 
 A grande diferença aqui vai ser na forma como essas bibliotecas serão carregadas, vou colocar também um tabela com as dependências da lib (por exemplo, eu tenho uma biblioteca `math/` com algumas definições e operações para `Vec2`, `Vec3`, `Vec4` e `Mat4`, que são usadas pela biblioteca `graphics/`). A ideia é mais para frente ter um plugin de `builder/` onde eu possa fazer uso dessas informações sobre dependências para empacotar somente as bibliotecas necessárias. Mesma coisa para um plugin de `runner/`, a ideia é ser a estrutura de uso mais básico para se rodar um jogo, ou seja, será responsável por iniciar os módulos necessários, criar um loop principal e expor para o usuário somente as funções necessárias
 
@@ -44,13 +44,13 @@ runner.init({window = {title = 'My Game'}})
 return runner
 ```
 
-Perceba que só retorno o runner, ou seja, essa tabela terá as funções de `step` e `quit`, então caso queira reescrever alguma dessas funções, criar um loop principal próprio, por exemplo, é bem simples de fazer.
+Perceba que só retorno o runner, ou seja, essa tabela terá as funções de `step` e `quit`, então caso seja do interesse do usuário criar um loop principal do zero, é bem simples, basta sobrescrever o campo `runner.step` com uma função própria.
 ### Empacotamento
 Acho que vou acabar optando por usar o `.zip` como formato para empacotamento mesmo. Para isso vou implementar um wrapper no meu executável para permitir essas operações de encode e decode.
 
 Mas isso fica mais pra frente.
 
 ### Próximos Passos
-A ideia é que uma vez que esse sistema de plugin está funcionando com 100% de certeza para o básico. Atualmente conseguir transpor boa parte do core para plugins, e rodar alguns dos exemplos após adaptá-los.
+A ideia é que uma vez que esse sistema de plugin esteja funcionando com 100% de certeza para o básico, começar a trabalhar nesses módulos. Atualmente consegui transpor boa parte do core para plugins, e também consegui rodar alguns dos exemplos após adaptá-los.
 
-Depois disso é começar a trabalhar nesse sistema de build, vou precisar ir atrás de alguma biblioteca de zip, implementar o wrapper em C no executável e após isso começar o builder em Lua.
+Estou fazendo alguns testes com o plugin de runner, e depois disso é começar a trabalhar nesse sistema de build.

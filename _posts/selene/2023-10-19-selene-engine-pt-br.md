@@ -3,7 +3,7 @@ layout: post
 title: Selene Engine [PT-BR]
 author: Canoi Gomes
 date: '2023-10-19T12:37:00'
-category: Blog
+category: Post
 tags:
   - article
   - devlog
