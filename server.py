@@ -7,7 +7,7 @@ os.chdir(build_dir)
 
 class HttpRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self) -> None:
-        if self.path in ['/', '/index.html', '/about', '/archive'] or self.path.startswith('/post/') or self.path.startswith('/tag/') or self.path.startswith('/search') or self.path.startswith('/project'):
+        if self.path in ['/', '/index.html', '/about', '/posts'] or self.path.startswith('/post/') or self.path.startswith('/tag/') or self.path.startswith('/search') or self.path.startswith('/project'):
             self.path = 'index.html'
         # self.path = 'index.html'
         return http.server.SimpleHTTPRequestHandler.do_GET(self)

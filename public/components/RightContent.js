@@ -11,7 +11,7 @@ export default {
     },
     created() {
         this.meta = this.$postsMeta
-        this.tags = this.$tags
+        this.tags = this.$postsTags
     },
     
     methods: {

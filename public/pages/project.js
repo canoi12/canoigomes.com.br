@@ -14,7 +14,7 @@ export default {
     },
     methods: {
         fetchPost() {
-            fetch('/_projects/' + this.$route.params.name + '.json')
+            fetch('/content/' + this.$route.params.name + '.json')
             .then(res => res.json())
             .then(json => {
                 this.info = json;

@@ -32,7 +32,7 @@ export default {
         }
     },
     template: `
-    <h1 style='border-bottom: 2px dashed var(--border-color);' class='title is-4' style='margin-bottom: 32px;'>ARCHIVE</h1>
+    <h1 style='border-bottom: 2px dashed var(--border-color);' class='title is-4' style='margin-bottom: 32px;'>POSTS</h1>
     <!-- <nav class='panel is-dark'>
         <p class='panel-heading'>
         POSTS

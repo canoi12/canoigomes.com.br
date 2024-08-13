@@ -26,7 +26,7 @@ export default {
                 <ul class='menu-list'>
                     <li><router-link to="/">/home</router-link></li>
                     <li><router-link to="/about">/about</router-link></li>
-                    <li><router-link to="/archive">/archive</router-link></li>
+                    <li><router-link to="/posts">/posts</router-link></li>
                     <li><router-link to="/projects">/projects</router-link></li>
                 </ul>
             </nav>

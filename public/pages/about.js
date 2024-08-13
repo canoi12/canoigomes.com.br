@@ -22,7 +22,7 @@ export default {
     template: `
     <!-- <h1 class='title is-2'>about</h1> -->
     <div class='content'>
-        <p>My name is Canoi Gomes de Aguiar, I'm a Brazilian Game Developer, actually working as a Game Porting Engineer at <a href='https://megacatstudios.com/' target='_blank'>Mega Cat Studios</a>. I graduated in IT from UFRN, and I'm current studying Philosophy in the same university  .</p>
+        <p>My name is Canoi Gomes de Aguiar, I'm a Brazilian Game Developer, actually working as a Game Porting Engineer at <a href='https://megacatstudios.com/' target='_blank'>Mega Cat Studios</a>. I have a bachelor's degree in IT from UFRN, and I'm current studying Philosophy at the same university.</p>
 
         <p>I make some personal computer graphics and low level gaming stuff, like game frameworks, game development tools, scripting languages and libs. Most of the projects use <code>C</code> and <code>Lua</code>, and I like to use OpenGL as the graphics library.</p>
         

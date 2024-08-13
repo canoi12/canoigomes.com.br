@@ -9,7 +9,6 @@ tags:
   - programming
   - C
 ---
-
 Você sabe como funciona um arquivo binário? Aqueles arquivos que ao
 tentarmos abrir num editor de textos qualquer, aparece um monte de
 símbolos que mal dá para entender do que se trata. Bem, e se eu te

@@ -34,6 +34,8 @@
 
     --bulma-code: rgb(139, 232, 255);
     --bulma-pre-background: #0c0c0c;
+
+    --bulma-code-padding: 0.15em 0.5em 0.15em;
 }
 
 .menu-list a:hover {
