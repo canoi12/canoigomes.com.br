@@ -49,7 +49,7 @@ export default {
     },
     template: `
     <!-- <h1 class='title is-2'>about</h1> -->
-    <div class='tabs is-boxed'>
+    <div class='tabs is-boxed is-info'>
         <ul>
             <li v-for='(cont,index) in content' :class='index == currentLang ? "is-active" : ""'><a @click="currentLang = index">{{ cont.language }}</a></li>
         </ul>
@@ -58,13 +58,13 @@ export default {
         <div v-html='content[currentLang].data'></div>
 
         <p><strong>Game Engines/Frameworks</strong></p>
-        <span style='margin-right: 8px; margin-bottom: 8px;' class='tag is-dark' v-for='engine in engines'>{{ engine }}</span>
+        <span style='margin-right: 8px; margin-bottom: 8px;' class='tag is-info' v-for='engine in engines'>{{ engine }}</span>
 
         <p><strong>Languages</strong></p>
-        <span style='margin-right: 8px; margin-bottom: 8px;' class='tag is-dark' v-for='lang in languages'>{{ lang }}</span>
+        <span style='margin-right: 8px; margin-bottom: 8px;' class='tag is-info' v-for='lang in languages'>{{ lang }}</span>
 
         <p><strong>Libs/Tools</strong></p>
-        <span style='margin-right: 8px; margin-bottom: 16px;' class='tag is-dark' v-for='tool in tools'>{{ tool }}</span>
+        <span style='margin-right: 8px; margin-bottom: 16px;' class='tag is-info' v-for='tool in tools'>{{ tool }}</span>
 
         <p><strong>Links</strong></p>
         <ul style='list-style: square;'>

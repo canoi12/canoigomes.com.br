@@ -6,12 +6,12 @@ export default {
   template: `
   <div class='columns main-columns'>
     <LeftContent />
-    <main class="column is-8">
+    <main class="column">
       <section class="section">
         <router-view></router-view>
       </section>
     </main>
-    <RightContent />
+    <!-- <RightContent /> -->
   </div>
   `
 }

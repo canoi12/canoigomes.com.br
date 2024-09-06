@@ -1,4 +1,7 @@
+import PostThumb from "./PostThumb.js";
+
 export default {
+    components: {PostThumb},
     props: ['postsData'],
     data() {
         return {
@@ -28,7 +31,12 @@ export default {
         }
     },
     template: `
-        <ul>
+        <div class="columns is-multiline">
+            <div :class="'column ' + ((index > 2 || index < 1) ? 'is-full' : '')" v-for="(post, index) in postsData">
+                <PostThumb :postMeta="post" :isFirst="index == 0"/>
+            </div>
+        </div>
+        <!-- <ul>
             <li :style='listStyle' class='archive-post' v-for='item in postsData'>
                 <router-link style="padding-bottom: 16px;" :to='"/post/" + item.linkname'>
                 <h2 class='title is-4'>[{{ item.category }}] - {{ item.title }}</h2>
@@ -41,6 +49,6 @@ export default {
                     </span>
                 </div>
             </li>
-        </ul>
+        </ul> -->
     `
 }
