@@ -113,6 +113,10 @@ body {
 
 #menu {
     margin: 8px 0 8px 0;
+
+    margin-inline-end: calc(var(--bulma-column-gap)*-1);
+    margin-inline-start: calc(var(--bulma-column-gap)*-1);
+    
     padding: 8px;
     /* border-bottom: var(--border-size) dashed var(--border-color); */
     border: var(--border-size) dashed var(--border-color);
@@ -124,12 +128,18 @@ body {
     border: var(--border-size) dashed var(--bulma-scheme-main);
     background-color: var(--border-color);
     border-radius: 8px;
+
+    margin-inline-end: calc(var(--bulma-column-gap)*-1);
+    margin-inline-start: calc(var(--bulma-column-gap)*-1);
 }
 
 .social-icons {
     margin-top: 8px;
     border: var(--border-size) dashed var(--bulma-scheme-main);
     background-color: var(--border-color);
+
+    margin-inline-end: calc(var(--bulma-column-gap)*-1);
+    margin-inline-start: calc(var(--bulma-column-gap)*-1);
 }
 
 .social-icon {
