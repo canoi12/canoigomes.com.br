@@ -173,6 +173,12 @@ body {
     margin: 2px;
 }
 
+.post-thumb-header {
+    background-color: var(--border-color);
+    border-radius: 8px;
+    padding: 8px;
+}
+
 .archive-post {
     margin: 16px 0;
     padding-bottom: 16px;

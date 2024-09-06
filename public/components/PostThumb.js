@@ -26,8 +26,10 @@ export default {
     template: `
         <div class="box">
             <RouterLink :to="'/post/' + postMeta.linkname">
-            <h2 :class="'title ' + (isFirst ? 'is-2' : 'is-4')">{{postMeta.title}}</h2>
-            <p :class="'subtitle ' + (isFirst ? 'is-5' : 'is-6')"><i class="fa-regular fa-calendar"></i> {{ this.getDate(postMeta.date) }}  |  <i class="fa-solid fa-user"></i> {{postMeta.author}}</p>
+            <div class="post-thumb-header">
+                <h2 :class="'title ' + (isFirst ? 'is-2' : 'is-4')">{{postMeta.title}}</h2>
+                <p :class="'subtitle ' + (isFirst ? 'is-5' : 'is-6')"><i class="fa-regular fa-calendar"></i> {{ this.getDate(postMeta.date) }}  |  <i class="fa-solid fa-user"></i> {{postMeta.author}}</p>
+            </div>
             </RouterLink>
             <br/>
             <div class='tags'>
