@@ -1,0 +1,13 @@
+---
+layout: post
+title: Usando premake5 na Selene
+description: Decidi mudar o build system do CMake para o Premake
+author: Canoi Gomes
+---
+Já tem um tempinho desde a ultima vez que olhei sobre o premake. Venho trabalhando na Selene (e na maioria dos outros projetos) utilizando o CMake como ferramenta de build system. Porém na Selene, onde especificamente estou usando C e Lua como linguagens principais, estava querendo achar algum meio de integrar bem ambos na hora de buildar projetos também. Por exemplo, de pode escrever scripts em Lua que podem ser embutidos no meu executável em tempo de build. E não que não seja possível de fazer isso no CMake, ou no próprio Makefile como já fiz em alguns projetos. Mas pelo Premake ser basicamente todo estruturado em cima dessas duas linguagens, decidi dar uma chance pra ver como a ferramenta se sai em relação ao projeto.
+
+Outra coisa é que decidi mudar outra coisa se tratando da Selene, no último post sobre a reestruturação, decidi adotar um sistema de plugins usando Lua e quero manter isso. Porém quero passar as libs mais complexas (como SDL2, por exemplo) para categoria de plugins, e usando o Premake eu posso controlar se elas serão embutidas ou não no meu executável, por padrão serão simplesmente compiladas como biblioteca dinâmica e posso me aproveitar do próprio `package.loadlib` do Lua. Os módulos também ainda irão existir, porém bem mais reduzidos. Ironicamente acabei me aproximando muito da ideia do próprio Premake, de ser um executável simples com algumas bibliotecas embutidas, só que no meu caso voltado mais para desenvolvimento de jogos.
+
+Então no fim eu vou ter um módulo `fs` para filesystem, `selGL` para OpenGL, onde a ideia é criar um loader próprio, somente com as funções necessárias para construir o renderizador 2D, porém no momento vou seguir usando o `glad` mesmo. Um módulo de `render` também, usando o próprio loader do OpenGL. A ideia é que os módulos sejam escritos sempre em C, e serão sempre embutidos no executável. Já os plugins são compilados como biblioteca dinâmica por padrão (`.dll` no Windows, `.so` no Linux e `.dylib` no MacOS), porém a ideia é que seja possível compila-los estaticamente no executável final também, mas esses podem ter alguma outra dependência externa, como o próprio SDL2 vai precisar do seu .dll na mesma pasta do executável para funcionar apropriadamente.
+
+Plugins também podem ser escritos em Lua, e a ideia é também conseguir os embutir no executável
