@@ -5,7 +5,7 @@ export default {
             subtitle: 'Brazilian Developer',
             social: [
                 {icon: 'fa-brands fa-github', path: 'https://github.com/canoi12/'},
-                {icon: 'fa-brands fa-twitter', path: 'https://x.com/canoidev/'},
+                {icon: 'fa-brands fa-bluesky', path: 'https://bsky.app/profile/canoigomes.com.br'},
                 {icon: 'fa-brands fa-youtube', path: 'https://www.youtube.com/@canoidev'},
                 {icon: 'fa-brands fa-itch-io', path: 'https://canoigomes.itch.io'},
                 {icon: 'fa-brands fa-linkedin', path: 'https://www.linkedin.com/in/canoi-gomes-de-aguiar/'},
