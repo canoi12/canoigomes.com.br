@@ -1,0 +1,29 @@
+:root {
+    --background-color: #111;
+    --foreground-color: #fff;
+
+    --primary-color: #2c5b6d;
+    --grey-color: #8d8c8c;
+
+    --link-color: #fff;
+    --link-color-hover: #9dadb7;
+    --link-color-click: #696a6a;
+
+    --resume-image-size: 164px;
+
+    --default-content-margin: 32px;
+}
+
+hr {
+    color: var(--foreground-color);
+}
+
+body {
+    
+    background: var(--background-color);
+    color: var(--foreground-color);
+    /*margin: 2px;*/
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+
+}

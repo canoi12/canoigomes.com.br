@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Canoi Gomes</title>
+        <link rel="stylesheet" href="./styles/style.css" />
+        <link rel="stylesheet" media="screen and (max-width: 719px)" href="./styles/mobile.css" />
+        <link rel="stylesheet" media="screen and (min-width: 720px) and (max-width: 1063px)" href="./styles/tablet.css" />
+        <link rel="stylesheet" media="screen and (min-width: 1064px)" href="./styles/widescreen.css" />
+        
+        
+        <link rel="stylesheet" href="./styles/home.css" />
+        <link rel="stylesheet" href="./styles/resume.css" />
+        <link rel="stylesheet" href="./styles/projects.css" />
+
+        <script src="./scripts/localization.js"></script>
+
+        <script src="./scripts/jquery-3.7.1.min.js"></script>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <section class="main-container">
+            <div class="main-content">
+                <div class="sidebar">
+                    <div class="sidebar-content">
+                        <div class="sidebar-header">
+                            <figure class="header-image">
+                                <img style="border-radius: 100%; border: 2px solid var(--foreground-color);" src="./images/lizard.png" />
+                            </figure>
+                            <h1 class="header-title">Canoi Gomes</h1>
+                        </div>
+                        <hr class='hr-style'>
+                        <div class="menu-container">
+                            <div class="social-links">
+                                <ul>
+                                    <li href="#"><a href="https://github.com/canoi12" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+                                    <li><a href="https://bsky.app/profile/canoigomes.com.br" target="_blank"><i class="fa-brands fa-bluesky"></i></a></li>
+                                    <li><a href="https://www.youtube.com/@canoidev" rel="me" target="_blank" class="icon"><i class="fa-brands fa-youtube"></i></a></li>
+                                    <li><a href="https://canoigomes.itch.io" rel="me" target="_blank" class="icon"><i class="fa-brands fa-itch-io"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/canoi-gomes-de-aguiar/" rel="me" target="_blank" class="icon"><i class="fa-brands fa-linkedin"></i></a></li>
+                                    <li id="nav-toggle"><a href="#" onclick="toggleNavMenu()" class="icon"><i class="fa-solid fa-bars"></i></a></li>
+                                </ul>
+                            </div>
+                            <div id="nav-menu" class="nav-menu">
+                                <ul>
+                                    <li><a id="home_button" href="#home" onclick="openPage('home')">/home</a></li>
+                                    <li><a id="resume_button" href="#resume" onclick="openPage('resume')">/resume</a></li>
+                                    <li><a id="projects_button" href="#projects" onclick="openPage('projects')">/projects</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="site-footer">
+                            <p><b>@Canoi Gomes - 2025</b></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="site-content" class="content">
+                </div>
+            </div>
+        </section>
+        <!-- <footer class="footer-container">
+        </footer> -->
+        
+        <script>
+            const lang = "pt_br";
+            var navShow = false;
+            let navDiv = document.getElementById('nav-menu');
+
+            const buttons = ['home', 'resume', 'projects'];
+            for (let i in buttons) {
+                console.log(buttons[i])
+                let name = buttons[i]
+                const btn = document.getElementById(name + '_button');
+                if (btn) btn.innerHTML = sidebar_texts[lang][name]
+            }
+
+            function updateNavMenu() {
+                let x = window.matchMedia('screen and (max-width: 719px)');
+                if (!x.matches) {
+                    navShow = true;
+                    navDiv.style.display = 'block';
+                } else {
+                    navShow = false;
+                    navDiv.style.display = 'none';
+                }
+            }
+            
+            console.log(lang);
+            function openPage(name) {
+                $("#site-content").load('./pages/' + name + '.html');
+                updateNavMenu();
+            }
+
+            window.addEventListener("resize", function(ev) {
+                console.log('changed');
+                updateNavMenu();
+            })
+
+            function toggleNavMenu() {
+                navShow = !navShow;
+                navDiv.style.display = navShow ? 'block' : 'none';
+            }
+
+            openPage('home');
+        </script>
+    </body>
+</html>

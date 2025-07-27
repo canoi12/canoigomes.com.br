@@ -1,0 +1,27 @@
+#home {
+    margin: var(--default-content-margin);
+}
+
+.home-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#home-text-1 {
+    flex: 4;
+}
+
+#home-image {
+    flex: 2;
+}
+
+#home-image img {
+    width: 100%;
+    /* border: #fff 4px solid; */
+}
+
+@media screen and (max-width: 719px) {
+    #home-text-1 {
+        flex: 100%;
+    }
+}

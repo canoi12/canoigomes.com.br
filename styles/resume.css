@@ -1,0 +1,164 @@
+#resume {
+    margin: 8px 128px;
+}
+
+@media screen and (max-width: 719px) {
+    #resume {
+        margin: 8px 16px;
+    }
+}
+
+.resume-header {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.resume-header img {
+    border-radius: 100%;
+}
+
+.resume-header-image {
+    flex: 2;
+}
+
+.resume-image {
+    width: var(--resume-image-size);
+    height: var(--resume-image-size);
+    border-radius: 100%;
+    background-image: url('/images/eu.jpg');
+    background-size: cover;
+    background-position-y: -45px;
+    border: #fff 4px solid;
+}
+
+.resume-header-text {
+    flex: 8;
+    vertical-align: middle;
+    padding-top: 8px;
+}
+
+.contact p {
+    margin: 8px 0;
+}
+
+@media screen and (max-width: 468px) {
+    .resume-header {
+        flex-direction: column;
+    }
+
+    .resume-header-image {
+        flex: 100%;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .resume-header-text {
+        flex: 100%;
+        justify-self: center;
+    }
+}
+
+/* Content */
+
+.resume-title {
+    background: var(--primary-color);
+    padding: 4px;
+    border-radius: 8px;
+}
+
+h4.subtitle {
+    color: var(--grey-color);
+    margin-top: -20px;
+    font-size: small;
+    /* font-size: medium; */
+}
+
+h2.subtitle {
+    color: var(--grey-color);
+    font-size: medium;
+    margin-top: -28px;
+}
+
+.resume-content h3 {
+    font-weight: bold;
+}
+
+.resume-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 32px;
+}
+
+.resume-content div {
+    /* margin: 8px 64px; */
+    /* border: #fff 1px solid; */
+    /* padding: 8px; */
+}
+
+.about-me {
+    flex: 60%;
+}
+
+.education {
+    flex: 35%;
+}
+
+.skills {
+    flex: 35%;
+}
+
+.skill {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skill progress[value] {
+    border-radius: 16px;
+    height: 8px;
+    align-self: center;
+}
+
+progress[value]::-moz-progress-bar {
+    background-color: var(--primary-color);
+    border-radius: 16px;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #fff;
+    border-radius: 16px;
+}
+
+progress[value]::-webkit-progress-value {
+    background-color: var(--primary-color);
+    border-radius: 16px;
+}
+
+.professional {
+    flex: 60%;
+}
+
+@media screen and (max-width: 719px) {
+    .resume-title {
+        font-size: 24px;
+    }
+
+    .about-me {
+        flex: 100%;
+    }
+
+    .professional {
+        flex: 100%;
+    }
+
+    .resume-content {
+        gap: 0 8px;
+    }
+}
+
+@media screen and (max-width: 489px) {
+    .resume-content div {
+        flex: 100%;
+    }
+}
