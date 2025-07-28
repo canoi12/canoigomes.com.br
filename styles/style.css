@@ -27,3 +27,7 @@ body {
     font-family: "Roboto", sans-serif;
 
 }
+
+#decentralize {
+    margin: var(--default-content-margin);
+}
