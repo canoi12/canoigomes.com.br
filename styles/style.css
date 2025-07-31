@@ -5,9 +5,12 @@
     --primary-color: #2c5b6d;
     --grey-color: #8d8c8c;
 
-    --link-color: #fff;
-    --link-color-hover: #9dadb7;
-    --link-color-click: #696a6a;
+    --link-color: #3b87a5;
+    --link-color-hover: #2c5b6d;
+
+    --menu-link-color: #fff;
+    --menu-link-hover: #9dadb7;
+    --menu-link-click: #696a6a;
 
     --resume-image-size: 164px;
 
@@ -30,4 +33,13 @@ body {
 
 #decentralize {
     margin: var(--default-content-margin);
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-color-hover);
 }

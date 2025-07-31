@@ -73,7 +73,7 @@
 }
 
 .project-footer a {
-    color: var(--link-color);
+    color: var(--menu-link-color);
     text-decoration: none;
     font-weight: bold;
 }

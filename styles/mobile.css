@@ -82,19 +82,19 @@
 }
 
 .menu-container a {
-    color: var(--link-color);
+    color: var(--menu-link);
     text-decoration: none;
     font-weight: bold;
 }
 
 .menu-container a:hover {
-    color: var(--link-color-hover);
+    color: var(--menu-link-hover);
     text-decoration: none;
     font-weight: bold;
 }
 
 .menu-container a:active {
-    color: var(--link-color-hover);
+    color: var(--menu-link-hover);
     text-decoration: none;
     font-weight: bold;
 }
