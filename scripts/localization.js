@@ -45,10 +45,12 @@ const resume_texts = {
         about_me: {
             title: "Sobre Mim",
             description: `
-            Me chamo Canoi Gomes de Aguiar, sou um desenvolvedor de software brasileiro, com especialidade em desenvolvimento de jogos e ferramentas multiplataforma.
+            Me chamo Canoi Gomes de Aguiar, sou um desenvolvedor de softwares brasileiro com especialidade em desenvolvimento de jogos e ferramentas multiplataforma.
             <br><br>
             Venho atuando como Engenheiro de Porting a alguns anos, trabalhando principalmente com ferramentas com Unity e Unreal para porting de jogos para Console.
-            Porém também trabalho com códigos mais baixo nível como C/C++ com SDL2, ou até mesmo lidando diretamente com as SDKs das plataformas.
+            Porém por muitos anos desenvolvi pequenos projetos independentes ou dentro da faculdade.
+            <br><br>
+            Atualmente meus projetos pessoais giram mais em torno de sistemas baixo nível relacionados a game engines, como sistemas de renderização, processamento de áudio, integração com linguagens de script, por aí vai.
             `
         }
     }
@@ -110,6 +112,7 @@ const projects_texts = {
     pt_br: {
         title: "Projetos",
         fmf: {
+            author: "DX Gameworks",
             description: `
             Forgive me Father é um jogo de tiro em primeira pessoa com arte no melhor estilo lovecraftiano.<br><br>
             Trabalhei ativamente no porting das plataformas Nintendo Switch e PS4/PS5.
