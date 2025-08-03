@@ -1,4 +1,3 @@
-console.log("Testando")
 $("#site-header").load("/partials/header.html");
 
 function updateNavMenu() {
