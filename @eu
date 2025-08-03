@@ -5,6 +5,20 @@
   "preferredUsername": "eu",
   "name": "Canoi Gomes",
   "summary": "Me chamo Canoi, sou um desenvolvedor de softwares brasileiro.",
+  "url": "https://canoigomes.com.br",
+  "discoverable": true,
+  "attachment": [
+    {
+      "type": "PropertyValue",
+      "name": "Website",
+      "value": "<a href=\"https://canoigomes.com.br\">canoigomes.com.br</a>"
+    },
+    {
+      "type": "PropertyValue",
+      "name": "GitHub",
+      "value": "<a href=\"https://github.com/canoi12\">@canoi12</a>"
+    }
+  ],
   "icon": {
     "type": "Image",
     "mediaType": "image/png",
