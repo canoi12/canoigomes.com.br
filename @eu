@@ -8,7 +8,7 @@
   "icon": {
     "type": "Image",
     "mediaType": "image/png",
-    "url": "https://media.canoigomes.com.br/lizard.png"
+    "url": "https://canoigomes.com.br/images/eu.jpg"
     },
   "inbox": "https://canoigomes.com.br/inbox",
   "outbox": "https://canoigomes.com.br/outbox",
