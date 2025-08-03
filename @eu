@@ -10,6 +10,6 @@
   "publicKey": {
     "id": "https://canoigomes.com.br/@eu#main-key",
     "owner": "https://canoigomes.com.br/@eu",
-    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\n...chave pública...\n-----END PUBLIC KEY-----"
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmsQYZdPPk2tzs1xy8KdK\nTgjc/1x8ts7oYAsqw2XnC0hvanVVHGagE4NsNa/TwkGpJ7ohY8BDHDMpyzT93mQH\nBBkNhHM/1OsPd8PCqOo4al+G1km2NA8fzYTZppKRAUUFGx8+onRpO3yDpDIYt7MK\niBIS00vK9mwlXMaGIJcZvteJ0A0Tjzq5sHumw7KSDu6OzVK1SjhD/9yU4Sfqq9sd\nnUuOZmZWCv4TPNT3+AmLR/BuKNbxfqk7i4mAsTryf/0tXFP8knkztrQani0bKie5\nZaK9nS/KWzsQ4WRQUPXhZ3HmxQW4CgcoT2SzAGuL2Qwj3J36lg8wBJsNrm3CZn9w\n/wIDAQAB\n-----END PUBLIC KEY-----"
   }
 }
