@@ -43,8 +43,14 @@
     </head>
     <body>
         <div id="content" class="main-content">
-            <header id="site-header" class="site-header sidebar"></header>
-            <script src="/scripts/build.js"></script>
+            <header id="site-header" class="site-header sidebar">
+                <div class="sidebar-header h-card">
+                    <figure class="header-image">
+                        <img style="border-radius: 100%; border: 2px solid var(--foreground-color);" class="u-photo" src="/images/lizard.png" />
+                    </figure>
+                    <h1 class="header-title p-author"><a href="/" rel="me" class="u-url">Canoi Gomes</a></h1>
+                </div>
+            </header>
             <main id="home site-content" class="content">
                 <h1 id="home-title">Home</h1>
                 <div class="home-content">
@@ -61,7 +67,7 @@
         </div>
         <!-- <footer class="footer-container">
         </footer> -->
-        
+        <script src="/scripts/build.js"></script>
         <script src="/scripts/home.js"></script>
         <script>
             var navShow = false;
