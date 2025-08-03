@@ -43,3 +43,7 @@ a {
 a:hover {
     color: var(--link-color-hover);
 }
+
+.header-title a {
+    color: var(--foreground-color);
+}
