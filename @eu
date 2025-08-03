@@ -5,6 +5,11 @@
   "preferredUsername": "eu",
   "name": "Canoi Gomes",
   "summary": "Me chamo Canoi, sou um desenvolvedor de softwares brasileiro.",
+  "icon": {
+    "type": "Image",
+    "mediaType": "image/png",
+    "url": "https://media.canoigomes.com.br/lizard.png"
+    },
   "inbox": "https://canoigomes.com.br/inbox",
   "outbox": "https://canoigomes.com.br/outbox",
   "publicKey": {
