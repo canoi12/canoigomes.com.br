@@ -2,12 +2,14 @@ const sidebar_texts = {
     en_us: {
         home: "/home",
         resume: "/resume",
-        projects: "/projects"
+        projects: "/projects",
+        decentralize: "/decentralize"
     },
     pt_br: {
         home: "/inicio",
         resume: "/currículo",
-        projects: "/projetos"
+        projects: "/projetos",
+        decentralize: "/descentralize"
     }
 }
 
