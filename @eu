@@ -5,7 +5,7 @@
   "preferredUsername": "eu",
   "name": "Canoi Gomes",
   "summary": "Me chamo Canoi, sou um desenvolvedor de softwares brasileiro.",
-  "inbox": "https://canoigomes.com.br/inbox",  // pode deixar como placeholder
+  "inbox": "https://canoigomes.com.br/inbox",
   "outbox": "https://canoigomes.com.br/outbox",
   "publicKey": {
     "id": "https://canoigomes.com.br/@eu#main-key",
