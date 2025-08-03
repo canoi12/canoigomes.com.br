@@ -68,7 +68,7 @@
                                     <li><a id="home_button" href="#home" onclick="openPage('home')">/home</a></li>
                                     <li><a id="resume_button" href="#resume" onclick="openPage('resume')">/resume</a></li>
                                     <li><a id="projects_button" href="#projects" onclick="openPage('projects')">/projects</a></li>
-                                    <li><a id="descentralize_button" href="#decentralize" onclick="openPage('decentralize')" >/descentralize</a></li>
+                                    <li><a id="decentralize_button" href="#decentralize" onclick="openPage('decentralize')" >/descentralize</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -89,7 +89,17 @@
             var navShow = false;
             let navDiv = document.getElementById('nav-menu');
 
-            const buttons = ['home', 'resume', 'projects'];
+
+            function loadHash() {
+                const hash = window.location.hash.substring(1); // tira o # do começo
+                if (!hash) {
+                    openPage("home");
+                } else {
+                    openPage(hash);
+                }
+            }
+
+            const buttons = ['home', 'resume', 'projects', 'decentralize'];
             for (let i in buttons) {
                 console.log(buttons[i])
                 let name = buttons[i]
@@ -124,7 +134,16 @@
                 navDiv.style.display = navShow ? 'block' : 'none';
             }
 
-            openPage('home');
+            // Ao carregar a página, checar o hash atual
+            $(document).ready(() => {
+                loadHash();
+            });
+
+            // Quando o hash mudar (ex: clique em link ou botão voltar)
+            $(window).on('hashchange', () => {
+                loadHash();
+            });
+            
         </script>
     </body>
 </html>
