@@ -47,3 +47,11 @@ a:hover {
 .header-title a {
     color: var(--foreground-color);
 }
+
+#content {
+    display: flex;
+}
+
+.content {
+    padding: 16px 32px;
+}

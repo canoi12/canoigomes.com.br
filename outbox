@@ -4,23 +4,6 @@
   "type": "OrderedCollection",
   "totalItems": 1,
   "orderedItems": [
-    {
-      "@context": "https://www.w3.org/ns/activitystreams",
-      "id": "https://canoigomes.com.br/#decentralize",
-      "type": "Create",
-      "actor": "https://canoigomes.com.br/@eu",
-      "published": "2025-07-29T12:00:00Z",
-      "to": ["https://www.w3.org/ns/activitystreams#Public"],
-      "object": {
-        "id": "https://canoigomes.com.br/#decentralize",
-        "type": "Note",
-        "summary": null,
-        "inReplyTo": null,
-        "content": "Uma reflexão sobre um uso mais descentralizado da internet",
-        "published": "2025-07-29T12:00:00Z",
-        "attributedTo": "https://canoigomes.com.br/@eu",
-        "to": ["https://www.w3.org/ns/activitystreams#Public"]
-      }
-    }
+    "https://canoigomes.com.br/activities/decentralize"
   ]
 }

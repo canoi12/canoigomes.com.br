@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Canoi Gomes">
-        <meta name="description" content="Meu site pessoal que contém minha informações profissionais.">
+        <meta name="description" content="Meus projetos">
         <link rev="made" rel="author" href="https://canoigomes.com.br">
         <link rel="webmention" href="https://webmention.io/canoigomes.com.br/webmention" />
-        <title>Canoi Gomes</title>
+        <title>Projetos - Canoi Gomes</title>
         <link rel="stylesheet" href="./styles/style.css" />
-        <link rel="stylesheet" media="screen and (max-width: 719px)" href="./styles/mobile.css" />
-        <link rel="stylesheet" media="screen and (min-width: 720px) and (max-width: 1063px)" href="./styles/tablet.css" />
-        <link rel="stylesheet" media="screen and (min-width: 1064px)" href="./styles/widescreen.css" />
+        <link rel="stylesheet" media="screen and (max-width: 719px)" href="/styles/mobile.css" />
+        <link rel="stylesheet" media="screen and (min-width: 720px) and (max-width: 1063px)" href="/styles/tablet.css" />
+        <link rel="stylesheet" media="screen and (min-width: 1064px)" href="/styles/widescreen.css" />
         
         
         <link rel="stylesheet" href="./styles/home.css" />
@@ -30,7 +30,7 @@
         <link rel="me" href="https://mastodon.gamedev.place/@canoi">
 
         <meta property="og:type" content="profile">
-        <meta property="og:title" content="Canoi Gomes">
+        <meta property="og:title" content="Projetos - Canoi Gomes">
         <meta property="og:url" content="https://canoigomes.com.br">
         <meta property="og:image" content="https://canoigomes.com.br/images/home_img.jpg">
 
@@ -44,24 +44,28 @@
     <body>
         <div id="content" class="main-content">
             <header id="site-header" class="site-header sidebar"></header>
-            <main id="home site-content" class="content">
-                <h1 id="home-title">Home</h1>
-                <div class="home-content">
-                    <div id="home-text-1">
-                        <!-- <p>me chamo Canoi Gomes de Aguiar. Sou um desenvolvedor de jogos brasileiro, com alguns anos de experiência com programação baixo nível e engenharia de porting.</p> -->
-                    </div>
-                    <div id="home-image">
-                        <figure>
-                            <img src="/images/home_img.jpg" />
-                        </figure>
+            <article id="post site-content" class="h-entry content">
+                <h1 id="projects-title">Projects</h1>
+                <hr class="hr-style">
+                <div class="porting-projects">
+                    <h1 class="porting-title">Portings que Trabalhei</h1>
+                    <div id="porting-projects" class="project-list">
                     </div>
                 </div>
-            </main>
+                <div class="game-projects">
+                    <h1 class="porting-title">Jogos que Trabalhei</h1>
+                    <div id="game-projects" class="project-list">
+                    </div>
+                </div>
+                <div class="tools-projects">
+                    <h1 class="porting-title">Bibliotecas</h1>
+                    <div id="tool-projects" class="project-list">
+                    </div>
+                </div>
+            </article>
         </div>
-        <!-- <footer class="footer-container">
-        </footer> -->
         <script src="/scripts/build.js"></script>
-        <script src="./scripts/home.js"></script>
+        <script src="/scripts/projects.js"></script>
         <script>
             var navShow = false;
             let navDiv = document.getElementById('nav-menu');
@@ -72,12 +76,6 @@
                 let name = buttons[i]
                 const btn = document.getElementById(name + '_button');
                 if (btn) btn.innerHTML = sidebar_texts[lang][name]
-            }
-            
-            console.log(lang);
-            function openPage(name) {
-                $("#site-content").load('./pages/' + name + '.html');
-                updateNavMenu();
             }
 
             window.addEventListener("resize", function(ev) {

@@ -6,7 +6,7 @@
     margin: 0;
 }
 
-.main-content {
+#content {
     background: var(--background-color);
     display: block;
 }

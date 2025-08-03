@@ -1,0 +1,18 @@
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "https://canoigomes.com.br/activities/decentralize",
+  "type": "Create",
+  "actor": "https://canoigomes.com.br/users/eu",
+  "published": "2025-07-29T12:00:00Z",
+  "to": ["https://www.w3.org/ns/activitystreams#Public"],
+  "object": {
+    "id": "https://canoigomes.com.br/decentralize.html",
+    "type": "Note",
+    "attributedTo": "https://canoigomes.com.br/users/eu",
+    "published": "2025-07-29T12:00:00Z",
+    "to": ["https://www.w3.org/ns/activitystreams#Public"],
+    "content": "<b>Descentralize</b><br><p>De uns anos pra cá eu noto uma crescente em relação a adoção de programas e serviços de código aberto em diversos âmbitos da tecnologia. Na área de jogos, que é a que acompanho mais de perto, temos diversas ferramentas que se não são abertas, disponibilizam pelo menos seu código fonte mesmo que de forma limitada.</p>",
+    "summary": "Texto que escrevi sobre descentralização da internet e das redes",
+    "url": "https://canoigomes.com.br/decentralize.html"
+  }
+}
