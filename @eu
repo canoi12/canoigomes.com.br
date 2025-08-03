@@ -1,0 +1,15 @@
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+  "id": "https://canoigomes.com.br/@eu",
+  "type": "Person",
+  "preferredUsername": "eu",
+  "name": "Canoi Gomes",
+  "summary": "Me chamo Canoi, sou um desenvolvedor de softwares brasileiro.",
+  "inbox": "https://canoigomes.com.br/inbox",  // pode deixar como placeholder
+  "outbox": "https://canoigomes.com.br/outbox",
+  "publicKey": {
+    "id": "https://canoigomes.com.br/@eu#main-key",
+    "owner": "https://canoigomes.com.br/@eu",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\n...chave pública...\n-----END PUBLIC KEY-----"
+  }
+}

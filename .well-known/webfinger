@@ -1,0 +1,10 @@
+{
+  "subject": "acct:eu@canoigomes.com.br",
+  "links": [
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://canoigomes.com.br/@eu"
+    }
+  ]
+}
