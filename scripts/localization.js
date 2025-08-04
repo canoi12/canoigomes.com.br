@@ -21,6 +21,7 @@ const home_texts = {
         <p>Trabalho com jogos há alguns anos, tanto como desenvolvedor independente, quanto profissionalmente.
         Meus projetos pessoais são voltados principalmente para desenvolvimento de motores de jogos e outras ferramentas relacionadas.</p>
         <p>Nos ultimos anos venho trabalhando como Engenheiro de Porting, principalmente com Consoles de jogos como Nintendo Switch, Playstation e Xbox.</p>
+        <p>Você pode consultar meus projetos de programação no meu <a href="https://github.com/canoi12" target="_blank">github</a>, praticamente todos os meus projetos são código aberto e sob licenças permissivias, então fique a vontade para estudar e modificar meus códigos.</p>
         `
     },
     pt_br: {
@@ -29,7 +30,10 @@ const home_texts = {
         <p>me chamo Canoi Gomes de Aguiar, sou um desenvolvedor de software brasileiro.</p>
         <p>Trabalho com jogos há alguns anos, tanto como desenvolvedor independente, quanto profissionalmente.
         Meus projetos pessoais são voltados principalmente para desenvolvimento de motores de jogos e outras ferramentas relacionadas.</p>
-        <p>Nos ultimos anos venho trabalhando como Engenheiro de Porting, principalmente com Consoles de jogos como Nintendo Switch, Playstation e Xbox.</p>
+        <p>Nos ultimos anos venho trabalhando como Engenheiro de Porting, principalmente com Consoles de jogos como Nintendo Switch, Playstation e Xbox.
+        Comecei a trabalhar com porting em 2022 na DX Gameworks, e desde 2024 estou trabalhando na Mega Cat Studios.</p>
+        <p>Você pode consultar meus projetos de programação no meu <a href="https://github.com/canoi12" target="_blank">github</a>,
+        praticamente todos os meus projetos são código aberto e sob licenças permissivas, então fique a vontade para estudar e modificar meus códigos.</p>
         `
     }
 }
