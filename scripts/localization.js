@@ -54,7 +54,7 @@ const resume_texts = {
             Me chamo Canoi Gomes de Aguiar, sou um desenvolvedor de softwares brasileiro com especialidade em desenvolvimento de jogos e ferramentas multiplataforma.
             <br><br>
             Venho atuando como Engenheiro de Porting desde 2022, trabalhando principalmente com ferramentas como Unity e Unreal Engine para porting de jogos para Console (Switch, PS4/PS5 e Xbox).
-            Porém por muitos anos desenvolvi pequenos projetos independentes ou dentro da faculdade.
+            Porém por muitos anos desenvolvi pequenos projetos de jogos independentes ou dentro da faculdade.
             <br><br>
             Atualmente meus projetos pessoais giram mais em torno de sistemas baixo nível relacionados a game engines, como sistemas de renderização, processamento de áudio, integração com linguagens de script, por aí vai.
             `
@@ -93,7 +93,7 @@ const projects_texts = {
             description: `
             Railgunners é um shmup com diversas mecânicas de upgrade. Voe, colete pontos, melhore sua nave e tente novamente<br><br>
             <b>*Trabalhei no Railgunners no início do projeto, construí algumas das bases do jogo.
-            Porém não participei ativamente do desenvolvimento do jogo</b>
+            Porém não participei ativamente do desenvolvimento do jogo até o final</b>
             `
         },
         pharos: {
@@ -145,8 +145,8 @@ const projects_texts = {
         rail: {
             description: `
             Railgunners é um shmup com diversas mecânicas de upgrade. Voe, colete pontos, melhore sua nave e tente novamente<br><br>
-            <b>*Trabalhei no Railgunners no início do projeto, construí algumas das bases do jogo.
-            Porém não participei ativamente do desenvolvimento do jogo</b>
+            <b>*Trabalhei no Railgunners no início do projeto, construí algumas das primeiras bases do jogo e o core gameplay.
+            Porém não participei ativamente do desenvolvimento do jogo até o final, o jogo continua em desenvolvimento pela galera da Expresso Studios.</b>
             `
         },
         pharos: {
@@ -157,14 +157,14 @@ const projects_texts = {
         },
         knight: {
             description: `
-            Knightvania é um jogo de metroidvania desenvolvido em 1 semana para a 365 indies game jam.<br><br>
-            Trabalhei no jogo desenvolvendo todo o código e toda a parte gráfica.
+            Knightvania é um jogo de metroidvania desenvolvido em 1 semana para a 365 indies game jam. O tema era "Isso não deveria estar aqui".<br><br>
+            Trabalhei no jogo desenvolvendo todo o código e toda a parte gráfica, utilizei a <a href="https://love2d.org" target="_blank">LÖVE2D</a>.
             `
         },
         zamnw: {
             description: `
             Jogo desenvolvido para a LOWRESJAM 2016, o jogo consistem em um shooter com 20 fases, diferentes armas e upgrades.<br><br>
-            Trabalhei desenvolvendo todo o código e toda a arte do jogo.
+            Trabalhei desenvolvendo todo o código e toda a arte do jogo, utilizei o <a href="https://gamemaker.io/" target="_blank">GameMaker Studio</a>, acho que o 1.4 na época.
             `
         }
     }
