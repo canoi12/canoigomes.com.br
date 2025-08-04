@@ -53,7 +53,7 @@ const resume_texts = {
             description: `
             Me chamo Canoi Gomes de Aguiar, sou um desenvolvedor de softwares brasileiro com especialidade em desenvolvimento de jogos e ferramentas multiplataforma.
             <br><br>
-            Venho atuando como Engenheiro de Porting a alguns anos, trabalhando principalmente com ferramentas com Unity e Unreal para porting de jogos para Console.
+            Venho atuando como Engenheiro de Porting desde 2022, trabalhando principalmente com ferramentas como Unity e Unreal Engine para porting de jogos para Console (Switch, PS4/PS5 e Xbox).
             Porém por muitos anos desenvolvi pequenos projetos independentes ou dentro da faculdade.
             <br><br>
             Atualmente meus projetos pessoais giram mais em torno de sistemas baixo nível relacionados a game engines, como sistemas de renderização, processamento de áudio, integração com linguagens de script, por aí vai.
