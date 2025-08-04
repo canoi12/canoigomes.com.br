@@ -6,7 +6,7 @@ const sidebar_texts = {
         decentralize: "/decentralize"
     },
     pt_br: {
-        home: "/inicio",
+        home: "/início",
         resume: "/currículo",
         projects: "/projetos",
         decentralize: "/descentralize"

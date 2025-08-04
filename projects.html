@@ -70,27 +70,13 @@
             var navShow = false;
             let navDiv = document.getElementById('nav-menu');
 
-            const buttons = ['home', 'resume', 'projects', 'decentralize'];
-            for (let i in buttons) {
-                console.log(buttons[i])
-                let name = buttons[i]
-                const btn = document.getElementById(name + '_button');
-                if (btn) btn.innerHTML = sidebar_texts[lang][name]
-            }
-
             window.addEventListener("resize", function(ev) {
                 console.log('changed');
                 updateNavMenu();
             })
 
-            function toggleNavMenu() {
-                navShow = !navShow;
-                navDiv.style.display = navShow ? 'block' : 'none';
-            }
-
-            // Ao carregar a página, checar o hash atual
             $(document).ready(() => {
-                loadHash();
+                updateNavMenu();
             });
 
             // Quando o hash mudar (ex: clique em link ou botão voltar)
